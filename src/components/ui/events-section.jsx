@@ -1,5 +1,6 @@
 "use client"
 import React from 'react';
+import Link from 'next/link';
 
 const EventCard = ({ date, title, description, ctaHref = '#' }) => {
   return (
@@ -20,7 +21,7 @@ const EventCard = ({ date, title, description, ctaHref = '#' }) => {
   );
 };
 
-const EventsSection = ({ onViewAllClick }) => {
+const EventsSection = () => {
   return (
     <section id="events" className="relative w-full bg-black/0">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-20 md:py-28">
@@ -56,17 +57,13 @@ const EventsSection = ({ onViewAllClick }) => {
         </div>
 
         <div className="mt-12 flex justify-center">
-          <button 
-            onClick={() => {
-              console.log('View All Events button clicked');
-              if (onViewAllClick) {
-                onViewAllClick();
-              }
-            }}
-            className="inline-flex items-center gap-2 rounded-xl px-6 py-4 bg-white/10 hover:bg-white/15 border border-white/10 text-white font-semibold backdrop-blur-md transition-all cursor-pointer"
+          <Link
+            href="/events"
+            className="group inline-flex items-center gap-2 rounded-xl px-6 py-4 bg-white/10 hover:bg-white/15 border border-white/10 text-white font-semibold backdrop-blur-md transition-all cursor-pointer hover:scale-105 active:scale-95"
           >
-            View All Events <span className="text-lg">↗</span>
-          </button>
+            View All Events 
+            <span className="text-lg group-hover:translate-x-1 transition-transform">↗</span>
+          </Link>
         </div>
       </div>
     </section>
